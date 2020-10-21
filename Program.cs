@@ -80,7 +80,8 @@ namespace MatchingEngine
             Engine m = new Engine();
             m.AddSymbol(1);
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            for (ulong i = 0; i < 400000; i+=10) {
+            ulong N = 1000000;
+            for (ulong i = 0; i < N; i+=10) {
                 m.AddOrder(i+0,2, 1, 8, 5,false);
                 m.AddOrder(i+1,2, 1, 5, 5,false);
                 m.AddOrder(i+2,1, 1, 8, 4,true);
@@ -93,7 +94,7 @@ namespace MatchingEngine
                 m.AddOrder(i+9,5, 1, 13, 2,false);
             }
             watch.Stop();
-            Console.WriteLine(watch.ElapsedMilliseconds);
+            Console.WriteLine($"Simulated {N} Trades in {watch.ElapsedMilliseconds}ms");
         }
     }
 }
