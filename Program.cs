@@ -20,6 +20,7 @@ namespace MatchingEngine
             if (Match(order,book)) return;
             if(isAsk) book.Asks.Add(order);
             else book.Bids.Add(order);
+            Orders[order.Oid] = order;
         }
         public void RemoveOrder(ulong oid)
         {
